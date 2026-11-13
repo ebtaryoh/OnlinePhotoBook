@@ -121,25 +121,28 @@ export const PhotoPickerModal: React.FC<PhotoPickerModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-      <div className="bg-[#FAF7F2] rounded-3xl max-w-4xl w-full border border-[#DFD6C3] shadow-2xl flex flex-col max-h-[92vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 overflow-hidden">
+      <div className="bg-[#FAF7F2] rounded-t-3xl sm:rounded-3xl max-w-4xl w-full border border-[#DFD6C3] shadow-2xl flex flex-col h-[94vh] sm:max-h-[92vh] overflow-hidden animate-in fade-in duration-200">
         
+        {/* Mobile handle indicator */}
+        <div className="w-10 h-1 bg-stone-300 rounded-full mx-auto mt-2.5 mb-1 sm:hidden shrink-0" />
+
         {/* Top Header */}
-        <div className="px-6 py-4 bg-white border-b border-[#E8E2D5] flex items-center justify-between shrink-0">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 bg-white border-b border-[#E8E2D5] flex items-center justify-between shrink-0">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs uppercase tracking-wider font-bold text-[#C25E36]">Step 2 of 3</span>
+              <span className="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-[#C25E36]">Step 2 of 3</span>
               <span className="text-stone-300">•</span>
-              <span className="text-xs text-stone-500 font-medium">Curate & Sequence</span>
+              <span className="text-[10px] sm:text-xs text-stone-500 font-medium">Curate & Sequence</span>
             </div>
-            <h2 className="font-serif text-2xl font-bold text-[#1F1D1A]">
+            <h2 className="font-serif text-lg sm:text-2xl font-bold text-[#1F1D1A]">
               {photos.length} photos in. {photos.length >= 20 ? "That's a full book." : `${20 - photos.length} more recommended.`}
             </h2>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-stone-100 text-stone-500 hover:text-stone-900 transition-colors"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-stone-100 text-stone-500 hover:text-stone-900 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -310,29 +313,29 @@ export const PhotoPickerModal: React.FC<PhotoPickerModalProps> = ({
         </div>
 
         {/* Bottom Bar: Action & Next */}
-        <div className="px-6 py-4 bg-white border-t border-[#E8E2D5] flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 bg-white border-t border-[#E8E2D5] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shrink-0">
           
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-full border-2 border-[#C25E36] flex items-center justify-center font-serif font-bold text-[#C25E36] text-base bg-[#FBF7F2]">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#C25E36] flex items-center justify-center font-serif font-bold text-[#C25E36] text-sm sm:text-base bg-[#FBF7F2] shrink-0">
               {photos.length}
             </div>
             <div>
-              <p className="font-serif font-bold text-sm text-[#1F1D1A]">
+              <p className="font-serif font-bold text-xs sm:text-sm text-[#1F1D1A]">
                 Ready when you are
               </p>
-              <p className="text-xs text-stone-500">
+              <p className="text-[10px] sm:text-xs text-stone-500 line-clamp-1 sm:line-clamp-none">
                 {photos.length} photos selected — creating an elegant, balanced album
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="px-4 py-3 rounded-xl border border-stone-300 hover:bg-stone-50 text-stone-800 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+              className="flex-1 sm:flex-none px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-stone-300 hover:bg-stone-50 text-stone-800 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
             >
-              <Plus className="w-4 h-4" />
-              <span>Add more photos</span>
+              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span>Add more</span>
             </button>
 
             <button
@@ -341,10 +344,10 @@ export const PhotoPickerModal: React.FC<PhotoPickerModalProps> = ({
                 sounds.playCelebrationChime();
                 onComplete(photos);
               }}
-              className="flex-1 sm:flex-none px-7 py-3 rounded-xl bg-[#C25E36] hover:bg-[#AA4D28] disabled:bg-stone-300 disabled:cursor-not-allowed text-white font-medium text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+              className="flex-2 sm:flex-none px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl bg-[#C25E36] hover:bg-[#AA4D28] disabled:bg-stone-300 disabled:cursor-not-allowed text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
               <span>Lay out my book</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </div>
 

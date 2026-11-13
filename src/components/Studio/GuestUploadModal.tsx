@@ -73,9 +73,12 @@ export const GuestUploadModal: React.FC<GuestUploadModalProps> = ({
   const approvedContributions = project.guestContributions.filter((c) => c.approved);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
-      <div className="bg-[#FAF7F2] rounded-3xl max-w-2xl w-full border border-[#DFD6C3] shadow-2xl flex flex-col max-h-[92vh] overflow-hidden">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-in fade-in duration-200">
+      <div className="bg-[#FAF7F2] rounded-t-3xl sm:rounded-3xl max-w-2xl w-full border border-[#DFD6C3] shadow-2xl flex flex-col max-h-[94vh] sm:max-h-[92vh] overflow-hidden">
         
+        {/* Mobile handle indicator */}
+        <div className="w-10 h-1 bg-stone-300 rounded-full mx-auto mt-2.5 sm:hidden shrink-0" />
+
         {/* Header */}
         <div className="px-6 py-4 bg-white border-b border-[#E8E2D5] flex items-center justify-between">
           <div className="flex items-center gap-2.5">

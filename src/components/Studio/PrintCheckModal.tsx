@@ -24,9 +24,12 @@ export const PrintCheckModal: React.FC<PrintCheckModalProps> = ({
   const highResCount = project.photos.filter((p) => p.resolutionQuality === 'high').length;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-      <div className="bg-[#FAF7F2] rounded-3xl max-w-lg w-full border border-[#DFD6C3] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 animate-in fade-in duration-200">
+      <div className="bg-[#FAF7F2] rounded-t-3xl sm:rounded-3xl max-w-lg w-full border border-[#DFD6C3] shadow-2xl flex flex-col max-h-[92vh] sm:max-h-[90vh] overflow-hidden">
         
+        {/* Mobile handle indicator */}
+        <div className="w-10 h-1 bg-stone-300 rounded-full mx-auto mt-2.5 sm:hidden shrink-0" />
+
         {/* Header */}
         <div className="px-6 py-4 bg-white border-b border-[#E8E2D5] flex items-center justify-between">
           <div className="flex items-center gap-2.5">

@@ -85,10 +85,10 @@ export const SpreadEditor: React.FC<SpreadEditorProps> = ({
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-stone-200 bg-stone-50 px-4 text-xs font-semibold">
+      <div className="flex border-b border-stone-200 bg-stone-50 px-2 sm:px-4 text-xs font-semibold overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveTab('layout')}
-          className={`py-3 px-3 border-b-2 transition-all flex items-center gap-1.5 ${
+          className={`py-3 px-2.5 sm:px-3 border-b-2 transition-all flex items-center gap-1.5 shrink-0 ${
             activeTab === 'layout'
               ? 'border-[#C25E36] text-[#C25E36]'
               : 'border-transparent text-stone-500 hover:text-stone-800'

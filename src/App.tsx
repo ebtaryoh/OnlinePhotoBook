@@ -265,8 +265,8 @@ export const App: React.FC = () => {
         onOpenCheckout={() => setIsCheckoutOpen(true)}
       />
 
-      {/* Main Body Switcher */}
-      <main className="flex-1 flex flex-col">
+      {/* Main Body Switcher with mobile bottom bar offset */}
+      <main className={`flex-1 flex flex-col ${currentTab !== 'studio' ? 'pb-16 md:pb-0' : 'pb-14 md:pb-0'}`}>
         
         {/* VIEW 1: LANDING & OVERVIEW */}
         {currentTab === 'landing' && (
